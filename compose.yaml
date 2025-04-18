@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  petms:
+    image: kamlesh599/petms:0.0.1   # Replace with your actual PetMS Docker image
+    container_name: petms
+    ports:
+      - "8080:8080"              # Map the application port (e.g., 8080) to the host
+    environment:
+      - SPRING_DATA_MONGODB_URI=mongodb://root:qwerty@mongo-driver:27017/PetDB?authSource=admin
+      -
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - mongo-driver             # Ensure MongoDB is started before the Java application
+
+  mongo-driver:
+    image: mongo:latest
+    container_name: mongo-driver
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=qwerty
+      - MONGO_INITDB_DATABASE=PetDB
+
+      # Expose MongoDB on port 27017
+    volumes:
+      - mongo_data:/data/db       # Persist MongoDB data
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    ports:
+      - "8081:8081"              # Expose Mongo Express on port 8081
+    environment:
+      - ME_CONFIG_MONGODB_URL=mongodb://root:qwerty@mongo-driver:27017/PetDB?authSource=admin
+    depends_on:
+      - mongo-driver             # Ensure MongoDB is started before Mongo Express
+
+volumes:
+  mongo_data:                 # MongoDB data volume
+    driver: local
