@@ -1,8 +1,8 @@
 package com.pets.dto;
 
-import com.pets.staticdata.util.ValidBreed;
-import com.pets.staticdata.util.ValidHealthStatus;
-import com.pets.staticdata.util.ValidSpecies;
+import com.pets.utility.validators.ValidBreed;
+import com.pets.utility.validators.ValidHealthStatus;
+import com.pets.utility.validators.ValidSpecies;
 import jakarta.validation.constraints.AssertFalse;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;

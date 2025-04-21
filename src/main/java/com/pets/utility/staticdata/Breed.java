@@ -1,4 +1,4 @@
-package com.pets.staticdata;
+package com.pets.utility.staticdata;
 
 public enum Breed {
         // Dogs

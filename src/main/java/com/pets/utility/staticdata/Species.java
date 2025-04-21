@@ -1,7 +1,5 @@
-package com.pets.staticdata;
+package com.pets.utility.staticdata;
 
-
-import com.fasterxml.jackson.annotation.JsonCreator;
 
 public enum Species {
     DOG("Dog"),

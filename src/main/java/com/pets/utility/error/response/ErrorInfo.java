@@ -1,4 +1,4 @@
-package com.pets.utility;
+package com.pets.utility.error.response;
 
 import java.time.LocalDateTime;
 

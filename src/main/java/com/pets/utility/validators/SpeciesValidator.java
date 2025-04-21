@@ -1,6 +1,7 @@
-package com.pets.staticdata.util;
+package com.pets.utility.validators;
 
-import com.pets.staticdata.Species;
+import com.pets.utility.staticdata.Species;
+import com.pets.utility.objectmapper.PetMapper;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 

@@ -5,12 +5,13 @@ import com.pets.dto.PetDTO;
 import com.pets.exception.PetMSException;
 import com.pets.service.PetService;
 
-import com.pets.staticdata.util.PetMapper;
-import com.pets.staticdata.util.ValidBreed;
-import com.pets.staticdata.util.ValidSpecies;
+import com.pets.utility.objectmapper.PetMapper;
+import com.pets.utility.validators.ValidBreed;
+import com.pets.utility.validators.ValidSpecies;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -25,13 +26,14 @@ import java.util.List;
 public class PetApi {
 
     @Autowired
-    PetService petService;
+    private Environment environment;
+    @Autowired
+    private PetService petService;
 
     @PostMapping
     public ResponseEntity<String> addPet(@Valid @RequestBody PetDTO pet, BindingResult result)  throws PetMSException {
         String petId = petService.addPet(pet);
-        System.out.println(pet.getName());
-        return new ResponseEntity<>(petId, HttpStatus.CREATED);
+        return new ResponseEntity<>(environment.getProperty("PetMSApi.Pet.Added.Successful")+petId, HttpStatus.CREATED);
     }
 
     @GetMapping("/species/{species}/un-adopted")

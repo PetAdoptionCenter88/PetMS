@@ -1,10 +1,11 @@
-package com.pets.staticdata.util;
+package com.pets.utility.objectmapper;
 
 import com.pets.document.Pet;
 import com.pets.dto.PetDTO;
-import com.pets.staticdata.*;
+import com.pets.utility.staticdata.Breed;
+import com.pets.utility.staticdata.HealthStatus;
+import com.pets.utility.staticdata.Species;
 import org.mapstruct.*;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -14,12 +15,12 @@ public interface PetMapper {
     @Mapping(source = "species", target = "species", qualifiedByName = "stringToSpecies")
     @Mapping(source = "breed", target = "breed", qualifiedByName = "stringToBreed")
     @Mapping(source = "healthStatus", target = "healthStatus", qualifiedByName = "stringListToHealthStatusList")
-    Pet toEntity(PetDTO dto);
+    Pet toPetEntity(PetDTO dto);
 
     @Mapping(source = "breed", target = "breed", qualifiedByName = "breedToString")
     @Mapping(source = "species", target = "species", qualifiedByName = "speciesToString")
     @Mapping(source = "healthStatus", target = "healthStatus", qualifiedByName = "healthStatusListToStringList")
-    PetDTO toDto(Pet pet);
+    PetDTO toPetDto(Pet pet);
 
     @Named("stringToBreed")
     static Breed stringToBreed(String breed) {

@@ -1,4 +1,4 @@
-package com.pets.utility;
+package com.pets.utility.error.response;
 
 import com.pets.exception.PetMSException;
 import jakarta.validation.ConstraintViolationException;
@@ -22,14 +22,14 @@ public class ExceptionControllerAdvice {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorInfo> exceptionHandler(Exception exception) {
         ErrorInfo error = new ErrorInfo();
-        error.setErrorMessage(environment.getProperty("General.EXCEPTION_MESSAGE"));
+        error.setErrorMessage(environment.getProperty("General.Exception_Message"));
         error.setErrorCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
         error.setTimestamp(LocalDateTime.now());
         return new ResponseEntity<ErrorInfo>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(PetMSException.class)
-    public ResponseEntity<ErrorInfo> infyBankexceptionHandler(PetMSException exception) {
+    public ResponseEntity<ErrorInfo> petMsExceptionHandler(PetMSException exception) {
         ErrorInfo error = new ErrorInfo();
         error.setErrorMessage(environment.getProperty(exception.getMessage()));
         error.setTimestamp(LocalDateTime.now());

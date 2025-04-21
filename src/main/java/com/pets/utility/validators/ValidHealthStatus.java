@@ -1,4 +1,4 @@
-package com.pets.staticdata.util;
+package com.pets.utility.validators;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;

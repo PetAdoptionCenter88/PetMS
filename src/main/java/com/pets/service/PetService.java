@@ -3,8 +3,8 @@ package com.pets.service;
 import com.pets.document.Pet;
 import com.pets.dto.PetDTO;
 import com.pets.exception.PetMSException;
-import com.pets.staticdata.Breed;
-import com.pets.staticdata.Species;
+import com.pets.utility.staticdata.Breed;
+import com.pets.utility.staticdata.Species;
 
 import java.util.List;
 

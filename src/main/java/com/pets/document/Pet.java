@@ -1,8 +1,8 @@
 package com.pets.document;
 
-import com.pets.staticdata.Breed;
-import com.pets.staticdata.HealthStatus;
-import com.pets.staticdata.Species;
+import com.pets.utility.staticdata.Breed;
+import com.pets.utility.staticdata.HealthStatus;
+import com.pets.utility.staticdata.Species;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

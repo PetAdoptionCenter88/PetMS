@@ -1,9 +1,9 @@
 package com.pets.repository;
 
 import com.pets.document.Pet;
-import com.pets.staticdata.Breed;
-import com.pets.staticdata.HealthStatus;
-import com.pets.staticdata.Species;
+import com.pets.utility.staticdata.Breed;
+import com.pets.utility.staticdata.HealthStatus;
+import com.pets.utility.staticdata.Species;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
